@@ -30,6 +30,9 @@ async function displayTodos() {
     // display the list of todos
     for (let todo of todos) {
         const task = renderTodo(todo);
+        task.addEventListener('click', () => {
+            task.classList.add('complete');
+        });
         todosEl.append(task);
     }
     // be sure to give each todo an event listener
