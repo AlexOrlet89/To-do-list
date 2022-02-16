@@ -11,6 +11,11 @@ import { renderTodo } from '../render-utils.js';
 checkAuth();
 displayTodos();
 
+window.addEventListener('load', ()=> {
+    displayTodos();
+}
+);
+
 const todosEl = document.querySelector('.todos');
 const todoForm = document.querySelector('.todo-form');
 const logoutButton = document.querySelector('#logout');
@@ -53,7 +58,7 @@ logoutButton.addEventListener('click', () => {
 
 deleteButton.addEventListener('click', async() => {
     // delete all todos
-    deleteAllTodos();
-    displayTodos();
+    await deleteAllTodos();
+    await displayTodos();
     // then refetch and display the updated list of todos
 });
