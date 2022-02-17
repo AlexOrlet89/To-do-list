@@ -32,7 +32,10 @@ export async function getTodos() {
     return checkError(response);
 }
 
-export async function completeTodo(id) {
+export async function completeTodo(todo) {
+    const todoid = todo.id; 
+    // console.log(id);
+    const response = await client.from('ToDoList').update({ complete: 'true' }).eq('id', `${todoid}`);
     // find the and update (set complete to true), the todo that matches the correct id
 
     return checkError(response);

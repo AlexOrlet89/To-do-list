@@ -35,12 +35,13 @@ async function displayTodos() {
     todosEl.innerHTML = '';
     // fetch the todos
     const todos = await getTodos();
-    console.log(todos);
+    // console.log(todos);
     // display the list of todos
     for (let todo of todos) {
         const task = renderTodo(todo);
         task.addEventListener('click', () => {
             task.classList.add('complete');
+            completeTodo(todo);
         });
         todosEl.append(task);
     }
